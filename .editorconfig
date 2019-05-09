@@ -1,6 +1,6 @@
 [*]
-indent_style = tab
+indent_style = space
 end_of_line = lf
-tab_width = 2
+tab_width = 4
 insert_final_newline = true
 charset = utf-8
