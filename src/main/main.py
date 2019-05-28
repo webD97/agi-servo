@@ -44,19 +44,19 @@ def pickupL():
     arm.claw.close()
     time.sleep(1)
 
-def pickupR():
-    armRotation1.setAngle(0)
-    time.sleep(1)
-    armRotation2.setAngle(0)
-    clawRotation.setAngle(180)
-    time.sleep(1)
-    armRotation3.setAngle(100)
-    armRotation4.setAngle(45)
-    time.sleep(1)
-    arm.claw.close()
-    time.sleep(1)
+#def pickupR():
+#    armRotation1.setAngle(0)
+#    time.sleep(1)
+#    armRotation2.setAngle(0)
+#    clawRotation.setAngle(180)
+#    time.sleep(1)
+#    armRotation3.setAngle(100)
+#    armRotation4.setAngle(45)
+#    time.sleep(1)
+#    arm.claw.close()
+#    time.sleep(1)
 
-def slot1():
+def slot1():  #zu niedrig!
     armRotation2.setAngle(90)
     time.sleep(.05)
     armRotation4.setAngle(20)
@@ -64,16 +64,13 @@ def slot1():
     armRotation4.setAngle(40)
     time.sleep(1)
     armRotation1.setAngle(88)
-    #armRotation2.setAngle(60)
-    #armRotation3.setAngle(130)
-    time.sleep(1)
-    
+    time.sleep(1)    
     armRotation2.setAngle(147)
     time.sleep(1)
     armRotation4.setAngle(0)
     time.sleep(1)
     armRotation3.setAngle(180)
-    time.sleep(2)
+    time.sleep(0.5)
 
 def slot2():
       
@@ -84,16 +81,13 @@ def slot2():
     armRotation4.setAngle(40)
     time.sleep(1)
     armRotation1.setAngle(88)
-    #armRotation2.setAngle(60)
-    #armRotation3.setAngle(130)
-    time.sleep(1)
-    
+    time.sleep(1)  
     armRotation2.setAngle(115)
     time.sleep(1)
     armRotation4.setAngle(10)
     time.sleep(1)
     armRotation3.setAngle(140)
-    time.sleep(5)
+    time.sleep(0.5)
 
 def slot3():
      
@@ -104,10 +98,7 @@ def slot3():
     armRotation4.setAngle(40)
     time.sleep(1)
     armRotation1.setAngle(88)
-    #armRotation2.setAngle(60)
-    #armRotation3.setAngle(130)
-    time.sleep(1)
-    
+    time.sleep(1)    
     armRotation2.setAngle(95)
     time.sleep(1)
     armRotation4.setAngle(10)
@@ -116,7 +107,6 @@ def slot3():
     time.sleep(.5)
 
 def slot4():
-      #Hoch nach pickup:
     
     armRotation2.setAngle(90)
     time.sleep(.05)
@@ -125,10 +115,7 @@ def slot4():
     armRotation4.setAngle(40)
     time.sleep(1)
     armRotation1.setAngle(88)
-    #armRotation2.setAngle(60)
-    #armRotation3.setAngle(130)
     time.sleep(1)
-    
     armRotation2.setAngle(80)
     time.sleep(1)
     armRotation4.setAngle(10)
@@ -137,7 +124,6 @@ def slot4():
     time.sleep(.5)
 
 def slot5():
-  #Hoch nach pickup:
     
     armRotation2.setAngle(90)
     time.sleep(.05)
@@ -146,10 +132,7 @@ def slot5():
     armRotation4.setAngle(40)
     time.sleep(1)
     armRotation1.setAngle(88)
-    #armRotation2.setAngle(60)
-    #armRotation3.setAngle(130)
     time.sleep(1)
-    
     armRotation2.setAngle(70)
     time.sleep(1)
     armRotation4.setAngle(27)
@@ -157,7 +140,6 @@ def slot5():
     armRotation3.setAngle(120)
     time.sleep(.5)
 def slot6():
-  #Hoch nach pickup:
     
     armRotation2.setAngle(90)
     time.sleep(.05)
@@ -166,10 +148,7 @@ def slot6():
     armRotation4.setAngle(40)
     time.sleep(1)
     armRotation1.setAngle(88)
-    #armRotation2.setAngle(60)
-    #armRotation3.setAngle(130)
     time.sleep(1)
-  #Höhe:
     armRotation2.setAngle(70)
     time.sleep(1)
     armRotation4.setAngle(40)
@@ -180,8 +159,6 @@ def slot6():
     time.sleep(.5)
 
 def slot7():
-  
-  #Hoch nach pickup:
     
     armRotation2.setAngle(90)
     time.sleep(.05)
@@ -190,12 +167,7 @@ def slot7():
     armRotation4.setAngle(40)
     time.sleep(1)
     armRotation1.setAngle(88)
-    #armRotation2.setAngle(60)
-    #armRotation3.setAngle(130)
     time.sleep(1)
-  #Höhe:
-    
-    
     armRotation2.setAngle(63)
     time.sleep(1)
     armRotation4.setAngle(60)
@@ -242,17 +214,6 @@ def main():
     arm.claw.open()
     time.sleep(0.5)
     reset()
-    
-    
-    
-#    reset()
-#    
-#    pickupL()
-#    slot6()
-#    arm.claw.open()
-#    time.sleep(1)
-    
-    
     
 
     # coords = extramath.cat2sph(10.0, 2.0, 0.0)
