@@ -27,6 +27,8 @@ def main():
     arm = RoboArm(armRotatation1, armRotation2, armRotation3, armRotation4, clawRotation, claw)
 
     arm.claw.open()
+    armRotatation1.setAngle(90)
+    time.sleep(1)
     arm.claw.close()
 
     armRotatation1.setAngle(0)
