@@ -6,10 +6,10 @@ class Claw:
         self._openCloseServo = openCloseServo
 
     def open(self):
-        self._openCloseServo.setAngle(0)
+        self._openCloseServo.setAngle(180)
 
     def close(self):
-        self._openCloseServo.setAngle(180)
+        self._openCloseServo.setAngle(0)
 
     def setRotation(self, angle: int):
         self._rotationServo.setAngle(angle)
