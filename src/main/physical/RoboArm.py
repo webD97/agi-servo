@@ -8,7 +8,7 @@ class RoboArm:
         self.motor2 = motor2
         self.motor3 = motor3
         self.motor4 = motor4
-        self.claw: Claw = Claw(clawRotationMotor, clawOpenCloseMotor)
+        self.claw = Claw(clawRotationMotor, clawOpenCloseMotor)
 
     def moveTo(self, x, y, z):
         raise Exception("Not implemented")
