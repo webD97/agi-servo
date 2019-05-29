@@ -7,14 +7,20 @@ from physical.PhysicalServo import PhysicalServo
 from physical.LogicalServo import LogicalServo
 from physical.RoboArm import RoboArm
 
+from Adafruit_PCA9685 import PCA9685
+
+
 """ Roboter Arm Entrypoint """
 def main():
-    servo1 = LogicalServo(PhysicalServo(0, 0, 0, 0))
-    servo2 = LogicalServo(PhysicalServo(0, 0, 0, 0))
-    servo3 = LogicalServo(PhysicalServo(0, 0, 0, 0))
-    servo4 = LogicalServo(PhysicalServo(0, 0, 0, 0))
-    servo5 = LogicalServo(PhysicalServo(0, 0, 0, 0))
-    servo6 = LogicalServo(PhysicalServo(0, 0, 0, 0))
+    pwm = PCA9685(0x40)
+
+    # TODO: Calibrate servos
+    servo1 = LogicalServo(PhysicalServo(pwm, 0, 150, 600))
+    servo2 = LogicalServo(PhysicalServo(pwm, 1, 150, 600))
+    servo3 = LogicalServo(PhysicalServo(pwm, 2, 150, 600))
+    servo4 = LogicalServo(PhysicalServo(pwm, 3, 150, 600))
+    servo5 = LogicalServo(PhysicalServo(pwm, 4, 150, 600))
+    servo6 = LogicalServo(PhysicalServo(pwm, 5, 150, 600))
 
     arm = RoboArm(servo1, servo2, servo3, servo4, servo5, servo6)
 
