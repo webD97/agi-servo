@@ -8,11 +8,11 @@ class PhysicalServo:
                 Parameters:
                 channel (int): PWM channel
         """
-        self._channel: int = channel
-        self._pwm: PCA9685 = pwm
-        self._minPulse: int = minPulse
-        self._maxPulse: int = maxPulse
-        self._currentPulse: int = defaultPulse
+        self._channel = channel
+        self._pwm = pwm
+        self._minPulse = minPulse
+        self._maxPulse = maxPulse
+        self._currentPulse = defaultPulse
 
     def setPulse(self, pulse: int):
         if pulse < self._minPulse or pulse > self._maxPulse:
