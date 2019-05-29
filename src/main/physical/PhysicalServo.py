@@ -19,7 +19,7 @@ class PhysicalServo:
             raise Exception("Pulse out of bounds: {} < {} < {}".format(self._minPulse, pulse, self._maxPulse))
 
         self._currentPulse = pulse
-        self._pwm.set_pwm(self._channel, 0, pulse)
+        self._pwm.set_pwm(self._channel, 0, int(pulse))
 
     def changePulse(self, pulse: int):
         newPulse = self._currentPulse + pulse
