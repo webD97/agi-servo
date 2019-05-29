@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import time
 import math
 #from extras import extramath
 
@@ -26,6 +26,16 @@ def main():
 
     arm.claw.open()
     arm.claw.close()
+
+    servo1.setAngle(0)
+    time.sleep(1)
+    servo1.setAngle(90)
+    time.sleep(1)
+    servo1.setAngle(180)
+    time.sleep(1)
+    servo1.setAngle(90)
+    time.sleep(1)
+    servo1.setAngle(0)
 
     # coords = extramath.cat2sph(10.0, 2.0, 0.0)
     # print("r\t\t= {:f}LE\ninclination\t= {:f}°\nazimuth\t\t= {:f}°".format(coords.radius, math.degrees(coords.inclination), math.degrees(coords.azimuth)))
