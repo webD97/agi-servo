@@ -14,4 +14,4 @@ class LogicalServo:
         dutyCycleWidth = self._servo._maxPulse - self._servo._minPulse
         anglePercentage = angle / 180
 
-        return dutyCycleWidth * anglePercentage + self._servo._minDutyCycle
+        return dutyCycleWidth * anglePercentage + self._servo._minPulse
