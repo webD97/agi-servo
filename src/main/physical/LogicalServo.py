@@ -11,7 +11,7 @@ class LogicalServo:
         self._servo.setPulse(self._angle2DutyCycle(angle))
 
     def _angle2DutyCycle(self, angle):
-        dutyCycleWidth = self._servo._maxDutyCycle - self._servo._minDutyCycle
+        dutyCycleWidth = self._servo._maxPulse - self._servo._minPulse
         anglePercentage = angle / 180
 
         return dutyCycleWidth * anglePercentage + self._servo._minDutyCycle
