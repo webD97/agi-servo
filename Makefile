@@ -2,10 +2,10 @@ init:
 	pip3 install -r requirements.txt
 
 test:
-	python3 -m unittest $(wildcard tests/*Test.py)
+	python3 -m unittest -v $(wildcard src/test/*Test.py)
 
 run:
-	src/main.py
+	src/main/main.py
 
 INSTALL_DIR = /usr/local/bin/servo-server.d/
 install:
