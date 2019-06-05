@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import time
 import math
+import json
+import socketio
 #from extras import extramath
 
 from physical.PhysicalServo import PhysicalServo
@@ -20,6 +22,10 @@ clawRotation = LogicalServo(PhysicalServo(pwm, 1, 350, 1800))
 claw = LogicalServo(PhysicalServo(pwm, 0, 350, 1800))
 
 arm = RoboArm(armRotation1, armRotation2, armRotation3, armRotation4, clawRotation, claw)
+
+sio = socketio.Client()
+url = "http://localhost:5000"
+sio.connect(url, namespaces= ["/robot"])
 
 def reset():
     armRotation4.setAngle(90)
@@ -178,43 +184,35 @@ def slot7():
     time.sleep(.5)
     
     
-    
+@sio.on("place_piece",namespace= "/robot")
+def message(data):
+    jsonData= json.loads(data)
+    column = int(jsonData["column"])
+    main(column)
 
 """ Roboter Arm Entrypoint """
-def main():
-    
-    
+def main(slot):
+      
     pickupL()
-    slot6()
+    if slot ==1:
+        slot1()
+    elif slot == 2:
+        slot2()
+    elif slot == 3:
+        slot3()
+    elif slot == 4:
+        slot4()
+    elif slot == 5:
+        slot5()
+    elif slot == 6:
+        slot6()
+    elif slot == 7:
+        slot7()
+        
     arm.claw.open()
     time.sleep(0.5)
     reset()
-    pickupL()
-    slot5()
-    arm.claw.open()
-    time.sleep(0.5)
-    reset()
-    pickupL()
-    slot4()
-    arm.claw.open()
-    time.sleep(0.5)
-    reset()
-    pickupL()
-    slot3()
-    arm.claw.open()
-    time.sleep(0.5)
-    reset()
-    pickupL()
-    slot2()
-    arm.claw.open()
-    time.sleep(0.5)
-    reset()
-    pickupL()
-    slot1()
-    arm.claw.open()
-    time.sleep(0.5)
-    reset()
-    
+    sio.emit("move_done",namespace = "/robot") 
 
     # coords = extramath.cat2sph(10.0, 2.0, 0.0)
     # print("r\t\t= {:f}LE\ninclination\t= {:f}°\nazimuth\t\t= {:f}°".format(coords.radius, math.degrees(coords.inclination), math.degrees(coords.azimuth)))
