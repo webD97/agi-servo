@@ -24,7 +24,7 @@ claw = LogicalServo(PhysicalServo(pwm, 0, 350, 1800))
 arm = RoboArm(armRotation1, armRotation2, armRotation3, armRotation4, clawRotation, claw)
 
 sio = socketio.Client()
-url = "http://localhost:5000"
+url = "http://192.168.43.201:5000"
 sio.connect(url, namespaces= ["/robot"])
 
 def reset():
@@ -186,13 +186,15 @@ def slot7():
     
 @sio.on("place_piece",namespace= "/robot")
 def message(data):
+    print("Annoooo")
+    print(data)
     jsonData= json.loads(data)
     column = int(jsonData["column"])
-    main(column)
+    main(column+1)
 
 """ Roboter Arm Entrypoint """
 def main(slot):
-      
+    print("slot"+str(slot))
     pickupL()
     if slot ==1:
         slot1()
@@ -218,4 +220,4 @@ def main(slot):
     # print("r\t\t= {:f}LE\ninclination\t= {:f}°\nazimuth\t\t= {:f}°".format(coords.radius, math.degrees(coords.inclination), math.degrees(coords.azimuth)))
 
 if __name__ == '__main__':
-    main()
+    pass
